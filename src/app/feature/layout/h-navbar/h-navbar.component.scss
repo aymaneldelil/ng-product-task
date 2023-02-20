@@ -1,0 +1,34 @@
+@use 'src/app/style/index' as * ;
+
+//---------------------------------------------------------------------------------------------------------------------------------------------
+
+header {
+    background-color: $white;
+    flex: 0 0 80px;
+    position: fixed;
+    z-index: 11;
+    height: 70px;
+    top: 0;
+    width: 100%;
+    transition: all ease-in-out 0.3s;
+    box-shadow: $box-shadow;
+
+    .container {
+        .h-navbar {
+            @include display-flex();
+            @include justify-content(center);
+
+            .logo {
+                img {
+                    width: calc($size *8);
+                }
+            }
+        }
+    }
+}
+
+.changeOnScroll {
+    position: fixed;
+    top: -70px;
+    width: 100%;
+}
