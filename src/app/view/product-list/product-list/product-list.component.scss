@@ -1,0 +1,47 @@
+@use '../../../style/index' as *;
+//---------------------------------------------------------------------------------------------------------------------------------------------
+
+.product-card {
+    @include border-radius(20px);
+    width: 200px;
+    padding: $size;
+    background-color: $white;
+    box-shadow: $box-shadow ;
+    margin: 0 auto;
+
+    .p-thumbnail {
+        @include border-radius(10px);
+        width: 100%;
+        max-height: 100px;
+    }
+
+    .p-details {
+        .p-title {
+            // color: $primary
+        }
+
+        .p-data-c-b {
+            @include display-flex();
+            @include justify-content(space-between);
+
+            * {
+                display: inline-block;
+                font-size: 13px;
+            }
+
+            .p-caterogry {
+                background-color: lighten($primary-lite, 10);
+                color: $primary;
+                @include border-radius(10px);
+                padding: 2px 5px;
+            }
+
+            .p-brand {
+                background-color: lighten($secondary-lite, 10);
+                color: $secondary;
+            }
+
+
+        }
+    }
+}
