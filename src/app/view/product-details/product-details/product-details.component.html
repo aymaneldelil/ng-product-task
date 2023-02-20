@@ -11,6 +11,9 @@
                     <p class="p-brand">{{productDetails.brand}}</p>
                 </div>
                 <!-- ---------------- -->
+                <app-rating-star [rate]="productDetails.rating"></app-rating-star>
+                <!-- ---------------- -->
+
                 <div class="p-data-p-s">
                     <p class="p-price">{{productDetails.price | currency:'USD'}}</p>
                     <p class="p-stock">3 in the stock</p>

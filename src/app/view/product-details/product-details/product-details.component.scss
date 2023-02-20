@@ -3,16 +3,27 @@
 
 
 .product-details {
-    height: 100%;
+
     .container {
         .product-box {
             @include display-flex();
             @include flex-wrap(wrap);
+            @include border-radius(30px);
+            box-shadow: $box-shadow;
+            padding: $size;
 
+            .p-thumbnail {
+                img {
+                    @include border-radius(10px)
+                }
+            }
 
             .p-details {
                 padding: $size calc($size*2);
-                .p-title {
+                @include display-flex();
+                @include flex-direction(column);
+                @include justify-content(space-evenly);
+                 .p-title {
 
                     .p-category,
                     .p-brand {
@@ -24,7 +35,7 @@
                     .p-price {
                         color: $primary;
                         font-weight: 600;
-                        font-size: calc($size *2);
+                        font-size: calc($size *3);
                     }
 
                     .p-stock {}
