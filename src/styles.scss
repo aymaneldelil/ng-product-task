@@ -1,1 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
+
+@use './app/style/media-query' as mq;
+@use './app/style/color' as colors;
+@use './app/style/grid-system' as * ;
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Quicksand', sans-serif;
+    background-color: colors.$secondary-lite;
+}
+
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 0 auto;
+
+    
+    @include mq.breakpoints(xsmall) {
+      max-width: 750px;
+    }
+    @include mq.breakpoints(small) {
+      width: 750px;
+    }
+  
+    @include mq.breakpoints(medium) {
+      width: 970px;
+    }
+  
+    @include mq.breakpoints(large) {
+      width: 1170px;
+    }
+  }
