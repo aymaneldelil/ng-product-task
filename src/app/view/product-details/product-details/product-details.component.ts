@@ -11,6 +11,9 @@ import { ProductService } from 'src/app/services/product.service';
 export class ProductDetailsComponent implements OnInit {
   private productId: string = '';
   public productDetails!: Iproduct;
+
+  public isLoading:boolean = false;
+  
   constructor(
     private _activeRoute: ActivatedRoute,
     private _productSVC: ProductService
@@ -25,6 +28,7 @@ export class ProductDetailsComponent implements OnInit {
     this._productSVC.getProductDetails(this.productId).subscribe({
       next: (data) => {
         this.productDetails = data;
+        this.isLoading = true;
       },
     });
   }

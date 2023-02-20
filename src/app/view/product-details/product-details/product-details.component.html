@@ -1,27 +1,45 @@
 <section class="product-details">
     <div class="container">
-        <div class="product-box">
-            <div class="p-thumbnail">
-                <img [src]="productDetails.thumbnail" alt="">
-            </div>
-            <div class="p-details">
-                <div class="p-title">
-                    <p class="p-category">{{productDetails.category}}</p>
-                    <h2 class="p-name">{{productDetails.title}}</h2>
-                    <p class="p-brand">{{productDetails.brand}}</p>
+        <ng-container *ngIf="isLoading">
+            <div class="product-box">
+                <div class="p-thumbnail">
+                    <img [src]="productDetails.thumbnail" alt="">
                 </div>
-                <!-- ---------------- -->
-                <app-rating-star [rate]="productDetails.rating"></app-rating-star>
-                <!-- ---------------- -->
+                <div class="p-details">
+                    <div class="p-title">
+                        <p class="p-category">{{productDetails.category}}</p>
+                        <h2 class="p-name">{{productDetails.title}}</h2>
+                        <p class="p-brand">{{productDetails.brand}}</p>
+                    </div>
+                    <app-rating-star [rate]="productDetails.rating"></app-rating-star>
 
-                <div class="p-data-p-s">
-                    <p class="p-price">{{productDetails.price | currency:'USD'}}</p>
-                    <p class="p-stock">{{productDetails.stock}} in the stock</p>
-                </div>
-                <div>
-                    <p>{{productDetails.description}}</p>
+                    <div class="p-data-p-s">
+                        <p class="p-price">{{productDetails.price | currency:'USD'}}</p>
+                        <p class="p-stock">{{productDetails.stock}} in the stock</p>
+                    </div>
+                    <div>
+                        <p>{{productDetails.description}}</p>
+                    </div>
                 </div>
             </div>
-        </div>
+        </ng-container>
+        <ng-container *ngIf="!isLoading">
+            <div class="loading">
+                <div class="p-thumbnail">
+                </div>
+                <div class="p-details">
+                    <div></div>
+                    <div></div>
+            
+                    <div></div>
+            
+                    <div></div>
+            
+                    <div></div>
+            
+                </div>
+            </div>
+        </ng-container>
+
     </div>
 </section>

@@ -12,20 +12,21 @@
             @include border-radius(30px);
             box-shadow: $box-shadow;
             padding: $size;
-
             .p-thumbnail {
                 img {
                     @include border-radius(10px);
-                    width : 350px;
+                    width: 350px;
                 }
             }
 
             .p-details {
                 padding: $size calc($size*2);
                 @include display-flex();
+                width: clamp(300px,40% ,600px);
                 @include flex-direction(column);
                 @include justify-content(space-evenly);
-                 .p-title {
+
+                .p-title {
 
                     .p-category,
                     .p-brand {
@@ -40,10 +41,65 @@
                         font-size: calc($size *3);
                     }
 
-                    .p-stock {}
                 }
             }
         }
+
+
+
+    }
+}
+
+
+.loading {
+    @include display-flex();
+    @include flex-wrap(wrap);
+    @include justify-content(space-around);
+    @include border-radius(30px);
+    box-shadow: $box-shadow;
+    padding: $size;
+    width: 900px;
+    height: 350px;
+    margin: 0 auto;
+
+    .p-thumbnail {
+
+        @include border-radius(20px);
+        width: 40%;
+        min-width: 400px;
+        height: 90%;
+        animation: load 2s infinite;
+        background: linear-gradient(120deg, #e5e5e5 30%, #f2f2f2 38%, #f2f2f2 40%, #e5e5e5 48%);
+        background-size: 200% 100%;
+        background-position: 100% 0;
     }
 
+    .p-details {
+        padding: $size calc($size*2);
+        width: 400px;
+        @include display-flex();
+        @include flex-direction(column);
+        @include justify-content(space-between);
+
+        * {
+            animation: load 2s infinite;
+            background: linear-gradient(120deg, #e5e5e5 30%, #f2f2f2 38%, #f2f2f2 40%, #e5e5e5 48%);
+            background-size: 200% 100%;
+            background-position: 100% 0;
+            width: 30%;
+            height: 20px;
+            margin: 10px;
+            @include border-radius(10px);
+
+        }
+
+
+
+    }
+}
+
+@keyframes load {
+    100% {
+        background-position: -100% 0;
+    }
 }
