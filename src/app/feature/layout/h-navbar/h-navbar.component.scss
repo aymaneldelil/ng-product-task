@@ -19,6 +19,7 @@ header {
             @include justify-content(center);
 
             .logo {
+                cursor: pointer;
                 img {
                     width: calc($size *8);
                 }
