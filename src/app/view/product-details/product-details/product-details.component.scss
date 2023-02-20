@@ -1,19 +1,33 @@
-@use '../../../style/index' as * ;
+@use '../../../style/index' as *;
 //---------------------------------------------------------------------------------------------------------------------------------------------
 
 
-.product-details{
-    .container{
-        .product-box{
+.product-details {
+    height: 100%;
+    .container {
+        .product-box {
             @include display-flex();
             @include flex-wrap(wrap);
 
 
-            .p-details{
-                .p-title{
-                    .p-category , .p-brand{
+            .p-details {
+                padding: $size calc($size*2);
+                .p-title {
+
+                    .p-category,
+                    .p-brand {
                         color: $secondary;
                     }
+                }
+
+                .p-data-p-s {
+                    .p-price {
+                        color: $primary;
+                        font-weight: 600;
+                        font-size: calc($size *2);
+                    }
+
+                    .p-stock {}
                 }
             }
         }
