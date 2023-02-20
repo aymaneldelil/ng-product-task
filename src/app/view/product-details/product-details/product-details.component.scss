@@ -8,13 +8,15 @@
         .product-box {
             @include display-flex();
             @include flex-wrap(wrap);
+            @include justify-content(space-around);
             @include border-radius(30px);
             box-shadow: $box-shadow;
             padding: $size;
 
             .p-thumbnail {
                 img {
-                    @include border-radius(10px)
+                    @include border-radius(10px);
+                    width : 350px;
                 }
             }
 
