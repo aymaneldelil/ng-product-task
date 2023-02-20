@@ -7,7 +7,8 @@
     padding: $size;
     background-color: $white;
     box-shadow: $box-shadow ;
-    margin: 0 auto;
+    margin: 5px auto;
+    // height: 180px;
 
     .p-thumbnail {
         @include border-radius(10px);
@@ -31,7 +32,7 @@
 
             .p-caterogry {
                 background-color: lighten($primary-lite, 10);
-                color: $primary;
+                color: darken($primary, 10);
                 @include border-radius(10px);
                 padding: 2px 5px;
             }
@@ -42,6 +43,12 @@
             }
 
 
+        }
+        .p-data-p-s{
+            .p-price{
+                color:$secondary;
+                font-weight: 600;
+            }
         }
     }
 }

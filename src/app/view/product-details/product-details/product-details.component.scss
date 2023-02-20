@@ -1,0 +1,22 @@
+@use '../../../style/index' as * ;
+//---------------------------------------------------------------------------------------------------------------------------------------------
+
+
+.product-details{
+    .container{
+        .product-box{
+            @include display-flex();
+            @include flex-wrap(wrap);
+
+
+            .p-details{
+                .p-title{
+                    .p-category , .p-brand{
+                        color: $secondary;
+                    }
+                }
+            }
+        }
+    }
+
+}

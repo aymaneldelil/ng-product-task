@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ProductDetailsRoutingModule } from './product-details-routing.module';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { ProductService } from 'src/app/services/product.service';
 
 
 @NgModule({
@@ -12,6 +13,9 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
   imports: [
     CommonModule,
     ProductDetailsRoutingModule
+  ],
+  providers:[
+    ProductService
   ]
 })
 export class ProductDetailsModule { }
