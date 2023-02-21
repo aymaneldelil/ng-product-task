@@ -15,12 +15,11 @@ export interface iProductSearch {
   styleUrls: ['./product-filter.component.scss'],
 })
 export class ProductFilterComponent implements OnInit {
+  
   public product_fc = new FormControl('');
   public options: Array<iProductSearch> = [];
-  // productList$!: Observable<Array<string>>;
   @Output() filteredProduct = new EventEmitter<string>();
   //---------------------------------------------------------------------------------------------------------------------------------------------
-
   constructor(private _productSVC: ProductService) {}
   //---------------------------------------------------------------------------------------------------------------------------------------------
   ngOnInit() {
@@ -28,7 +27,6 @@ export class ProductFilterComponent implements OnInit {
     this.filterProduct();
   }
   //---------------------------------------------------------------------------------------------------------------------------------------------
-
   private initialValues(): void {
     this._productSVC
       .getProducts()
@@ -46,8 +44,7 @@ export class ProductFilterComponent implements OnInit {
         },
       });
   }
-  //---------------------------------------------------------------------------------------------------------------------------------------------
-
+  //--------------------------------------------------------------------------------------------------------------------------------------------
   private filterProduct(): void {
     this.product_fc.valueChanges.subscribe({
       next: (n) => {
@@ -55,12 +52,4 @@ export class ProductFilterComponent implements OnInit {
       },
     });
   }
-
-  // private _filter(value: string): string[] {
-  //   const filterValue = value.toLowerCase();
-
-  //   return this.options.filter((option) =>
-  //   option.title.toLowerCase().includes(filterValue)
-  //   );
-  // }
 }
