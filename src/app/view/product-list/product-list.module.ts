@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ProductListRoutingModule } from './product-list-routing.module';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductService } from 'src/app/services/product.service';
+import { AngularMaterialModule } from 'src/app/feature/angular-material/angular-material.module';
 
 //---------------------------------------------------------------------------------------------------------------------------------------------
 @NgModule({
@@ -12,7 +13,9 @@ import { ProductService } from 'src/app/services/product.service';
   ],
   imports: [
     CommonModule,
-    ProductListRoutingModule
+    ProductListRoutingModule,
+AngularMaterialModule
+
   ],
   providers:[
     ProductService

@@ -1,9 +1,29 @@
 <section class="product-list" >
     <div class="container">
-        <div class="row">
-          
-                <section *ngFor="let p of products" class="col-xsmall-12 col-small-6 col-medium-4 col-large-3">
+        <div class="row"> 
+            <section class="product-search">
+                <form [formGroup]="stateForm">
+                    <mat-form-field appearance="fill">
+                      <mat-label>States Group</mat-label>
+                      <input type="text"
+                             matInput
+                             formControlName="stateGroup"
+                             required
+                             [matAutocomplete]="autoGroup">
+                        <mat-autocomplete #autoGroup="matAutocomplete">
+                          <mat-optgroup *ngFor="let group of stateGroupOptions | async" [label]="group.letter">
+                            <mat-option *ngFor="let name of group.names" [value]="name">
+                              {{name}}
+                            </mat-option>
+                        </mat-optgroup>
+                      </mat-autocomplete>
+                    </mat-form-field>
+                  </form>
+                  
 
+            </section>
+            
+                <section *ngFor="let p of products" class="col-xsmall-12 col-small-6 col-medium-4 col-large-3">
                     <section [routerLink]="['/products' , p.id]" class="product-card " >
                         <img class="p-thumbnail" src={{p.thumbnail}} alt="" loading="lazy">
                         <div class="p-details">
