@@ -16,7 +16,7 @@ export class ProductService {
     return this._http.get<Iproduct>(`https://dummyjson.com/products/${id}`);
   }
   //-------------------------------------------------------------------------------------------------------------------------------------------
-  getFilteredProducts(title: string): Observable<Iproduct> {
-    return this._http.get<Iproduct>(`https://dummyjson.com/products/search?q=${title}`);
+  getFilteredProducts(title: string): Observable<IproductRes> {
+    return this._http.get<IproductRes>(`https://dummyjson.com/products/search?q=${title}`);
   }
 }

@@ -20,9 +20,6 @@ export class ProductListComponent implements OnInit {
   //-------------------------------------------------------------------------------------------------------------------------------------------
 
   constructor(private _productSVC: ProductService, private _fb: FormBuilder) {}
- 
-  //-------------------------------------------------------------------------------------------------------------------------------------------
-
   //-------------------------------------------------------------------------------------------------------------------------------------------
   ngOnInit(): void {
     this.initialValues();
@@ -37,6 +34,16 @@ export class ProductListComponent implements OnInit {
         console.log(this.products);
       },
     });
+  }
+  //-------------------------------------------------------------------------------------------------------------------------------------------
+  public getFilteredProduct(filter:string){
 
+  this._productSVC.getFilteredProducts(filter).subscribe(
+    {
+      next:(res)=>{
+        this.products = res.products;
+      }
+    }
+  )
   }
 }

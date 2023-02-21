@@ -1,7 +1,7 @@
 <section class="product-list">
     <div class="container">
         <section class="product-search">
-            <app-product-filter></app-product-filter>
+            <app-product-filter (filteredProduct)="getFilteredProduct($event)"></app-product-filter>
         </section>
         <div class="row">
             <section *ngFor="let p of products" class="col-xsmall-12 col-small-6 col-medium-4 col-large-3">

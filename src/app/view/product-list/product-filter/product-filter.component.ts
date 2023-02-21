@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { filter, map, Observable, startWith, tap, mergeMap } from 'rxjs';
 import { Iproduct } from 'src/app/core/interfaces/iproduct';
@@ -15,9 +15,11 @@ export interface iProductSearch {
   styleUrls: ['./product-filter.component.scss'],
 })
 export class ProductFilterComponent implements OnInit {
-  product_fc = new FormControl('');
-  options: Array<iProductSearch> = [];
-  productList$!: Observable<Array<string>>;
+  public product_fc = new FormControl('');
+  public options: Array<iProductSearch> = [];
+  // productList$!: Observable<Array<string>>;
+  @Output() filteredProduct = new EventEmitter<string>();
+  //---------------------------------------------------------------------------------------------------------------------------------------------
 
   constructor(private _productSVC: ProductService) {}
   //---------------------------------------------------------------------------------------------------------------------------------------------
@@ -35,7 +37,7 @@ export class ProductFilterComponent implements OnInit {
           return m.products;
         }),
         map((f) => {
-          return { 'id': f.id, 'title': f.title };
+          return { id: f.id, title: f.title };
         })
       )
       .subscribe({
@@ -47,12 +49,11 @@ export class ProductFilterComponent implements OnInit {
   //---------------------------------------------------------------------------------------------------------------------------------------------
 
   private filterProduct(): void {
-    // this.productList$ = this.product_fc.valueChanges.pipe(
-    this.product_fc.valueChanges.pipe(
-      startWith(''),
-      tap((t) => console.log(t)),
-      // map((value) => this._filter(value || ''))
-    ).subscribe()
+    this.product_fc.valueChanges.subscribe({
+      next: (n) => {
+        this.filteredProduct.emit(n!)
+      },
+    });
   }
 
   // private _filter(value: string): string[] {
