@@ -5,11 +5,11 @@
                placeholder="Product name"
                aria-label="Product name"
                matInput
-               [formControl]="myControl"
+               [formControl]="product_fc"
                [matAutocomplete]="auto">
         <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-            {{option}}
+          <mat-option *ngFor="let option of options " [value]="option.id">
+            {{option.title}}
           </mat-option>
         </mat-autocomplete>
       </mat-form-field>

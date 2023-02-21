@@ -6,7 +6,6 @@ import { IproductRes } from 'src/app/core/interfaces/iproduct-res';
 
 @Injectable()
 export class ProductService {
-
   constructor(private _http: HttpClient) {}
   //-------------------------------------------------------------------------------------------------------------------------------------------
   getProducts(): Observable<IproductRes> {
@@ -15,5 +14,9 @@ export class ProductService {
   //-------------------------------------------------------------------------------------------------------------------------------------------
   getProductDetails(id: string): Observable<Iproduct> {
     return this._http.get<Iproduct>(`https://dummyjson.com/products/${id}`);
+  }
+  //-------------------------------------------------------------------------------------------------------------------------------------------
+  getFilteredProducts(title: string): Observable<Iproduct> {
+    return this._http.get<Iproduct>(`https://dummyjson.com/products/search?q=${title}`);
   }
 }
