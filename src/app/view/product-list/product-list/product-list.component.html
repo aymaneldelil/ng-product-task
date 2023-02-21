@@ -1,44 +1,25 @@
-<section class="product-list" >
+<section class="product-list">
     <div class="container">
-        <div class="row"> 
-            <section class="product-search">
-                <form [formGroup]="stateForm">
-                    <mat-form-field appearance="fill">
-                      <mat-label>States Group</mat-label>
-                      <input type="text"
-                             matInput
-                             formControlName="stateGroup"
-                             required
-                             [matAutocomplete]="autoGroup">
-                        <mat-autocomplete #autoGroup="matAutocomplete">
-                          <mat-optgroup *ngFor="let group of stateGroupOptions | async" [label]="group.letter">
-                            <mat-option *ngFor="let name of group.names" [value]="name">
-                              {{name}}
-                            </mat-option>
-                        </mat-optgroup>
-                      </mat-autocomplete>
-                    </mat-form-field>
-                  </form>
-                  
+        <section class="product-search">
+            <app-product-filter></app-product-filter>
+        </section>
+        <div class="row">
+            <section *ngFor="let p of products" class="col-xsmall-12 col-small-6 col-medium-4 col-large-3">
+                <section [routerLink]="['/products' , p.id]" class="product-card ">
+                    <img class="p-thumbnail" src={{p.thumbnail}} alt="" loading="lazy">
+                    <div class="p-details">
+                        <h3 class="p-title">{{p.title}}</h3>
+                        <div class="p-data-c-b">
+                            <span class="p-caterogry">{{p.category}}</span>
+                            <span class="p-brand">{{p.brand}}</span>
+                        </div>
+                        <div class="p-data-p-s">
+                            <span class="p-price"> {{p.price | currency:'USD'}}</span>
+                        </div>
+                    </div>
+                </section>
 
             </section>
-            
-                <section *ngFor="let p of products" class="col-xsmall-12 col-small-6 col-medium-4 col-large-3">
-                    <section [routerLink]="['/products' , p.id]" class="product-card " >
-                        <img class="p-thumbnail" src={{p.thumbnail}} alt="" loading="lazy">
-                        <div class="p-details">
-                            <h3 class="p-title">{{p.title}}</h3>
-                            <div class="p-data-c-b">
-                                <span class="p-caterogry">{{p.category}}</span>
-                                <span class="p-brand">{{p.brand}}</span>
-                            </div>
-                            <div class="p-data-p-s">
-                                <span class="p-price"> {{p.price | currency:'USD'}}</span>
-                            </div>
-                        </div>
-                    </section>
-                
-                </section>
         </div>
     </div>
 
